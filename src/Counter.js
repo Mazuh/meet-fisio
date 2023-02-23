@@ -10,8 +10,17 @@ export default function Counter() {
   const decrement = () => setCount(count - 1);
 
   const [countSetter, setCountSetter] = useState(10);
-  const handleCountSetterChange = (event, newValue) => setCountSetter(newValue);
-  const syncCountWithSetter = () => setCount(countSetter);
+  const handleCountSetterChange = (event) =>
+    setCountSetter(
+      ["0", "00", ""].includes(event.target.value)
+        ? "0"
+        : event.target.value.replace(/^0+/, "")
+    );
+
+  const handleCountWithSetterSubmit = (event) => {
+    event.preventDefault();
+    setCount(parseInt(countSetter, 10) || 0);
+  };
 
   return (
     <Box component="section">
@@ -27,16 +36,21 @@ export default function Counter() {
       <Button onClick={decrement} variant="outlined" color="warning">
         Decrement
       </Button>
-      <Box display="flex" alignContent="center" mt={2}>
+      <Box
+        component="form"
+        onSubmit={handleCountWithSetterSubmit}
+        display="flex"
+        alignContent="center"
+        mt={2}
+      >
         <TextField
           id="count-setter"
           label="Go to number"
           type="number"
-          min="0"
           value={countSetter}
           onChange={handleCountSetterChange}
         />
-        <Button onClick={syncCountWithSetter} variant="contained">
+        <Button type="submit" variant="contained">
           Set
         </Button>
       </Box>
