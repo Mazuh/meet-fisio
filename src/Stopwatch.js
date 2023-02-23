@@ -46,9 +46,14 @@ export default function Stopwatch() {
 
   return (
     <Box component="section">
-      <Typography variant="h4" component="p" p={2}>
-        {visibleSeconds}
-        <Typography variant="overline">s {visibleDecisecond}</Typography>
+      <Typography component="p" p={2}>
+        <Typography variant="h4" component="span" p={2}>
+          {visibleSeconds}
+        </Typography>
+        <Typography variant="overline">s</Typography>
+        <Typography variant="h6" component="span" p={2}>
+          {startedAt ? visibleDecisecond : ""}
+        </Typography>
       </Typography>
       {startedAt && !pausedAt ? (
         <Button onClick={pause} variant="contained">

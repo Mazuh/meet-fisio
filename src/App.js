@@ -7,9 +7,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Timer from "./Timer";
 import Stopwatch from "./Stopwatch";
+import Counter from "./Counter";
 
 export default function App() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   const handleChange = (event, newValue) => setValue(newValue);
 
@@ -36,7 +37,7 @@ export default function App() {
           <Stopwatch />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+          <Counter />
         </TabPanel>
         <TabPanel value={value} index={3}>
           Item Four
