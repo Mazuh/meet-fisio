@@ -49,6 +49,8 @@ export default function Counter() {
           type="number"
           value={countSetter}
           onChange={handleCountSetterChange}
+          autoComplete="off"
+          required
         />
         <Button type="submit" variant="contained">
           Set

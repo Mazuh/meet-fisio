@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import Timer from "./Timer";
 import Stopwatch from "./Stopwatch";
 import Counter from "./Counter";
+import Reader from "./Reader";
 
 export default function App() {
   const [value, setValue] = useState(1);
@@ -40,7 +41,7 @@ export default function App() {
           <Counter />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          Item Four
+          <Reader />
         </TabPanel>
       </Box>
     </ThemeProvider>
