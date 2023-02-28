@@ -22,6 +22,8 @@ export default function Counter() {
     setCount(parseInt(countSetter, 10) || 0);
   };
 
+  const handleEventToTriggerSelection = (event) => event.target.select();
+
   return (
     <Box component="section">
       <Typography component="p" p={2}>
@@ -50,6 +52,7 @@ export default function Counter() {
           type="number"
           value={countSetter}
           onChange={handleCountSetterChange}
+          onFocus={handleEventToTriggerSelection}
           autoComplete="off"
           required
         />

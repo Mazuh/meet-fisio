@@ -27,6 +27,8 @@ export default function Reader() {
     setLink(linkField.replaceAll(/edit.*/g, ""));
   };
 
+  const handleEventToTriggerSelection = (event) => event.target.select();
+
   return (
     <Box component="section">
       <Box>
@@ -55,6 +57,7 @@ export default function Reader() {
           label="Google Docs link"
           value={linkField}
           onChange={handleLinkFieldChange}
+          onFocus={handleEventToTriggerSelection}
           autoComplete="off"
           required
         />
