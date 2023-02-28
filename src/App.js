@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -28,7 +29,8 @@ export default function App() {
             <Tab label="Timer ⏱️" {...a11yProps(0)} />
             <Tab label="Stopwatch ⌛" {...a11yProps(1)} />
             <Tab label="Counter ✋" {...a11yProps(2)} />
-            <Tab label="Reader 📚" {...a11yProps(3)} />
+            <Tab label="Reader 📚" {...a11yProps(4)} />
+            <Tab label="ℹ️" aria-label="About it" />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -42,6 +44,13 @@ export default function App() {
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Reader />
+        </TabPanel>
+        <TabPanel value={value} index={4} sx={{ maxWidth: "400px" }}>
+          Made by Mazuh under MIT License and available at GitHub{" "}
+          <Link target="_blank" href="https://github.com/Mazuh/meet-fisio">
+            Mazuh/meet-fisio
+          </Link>{" "}
+          repository.
         </TabPanel>
       </Box>
     </ThemeProvider>
