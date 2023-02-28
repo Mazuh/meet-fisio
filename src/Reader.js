@@ -29,7 +29,7 @@ export default function Reader() {
 
   return (
     <Box component="section">
-      <Box p={2}>
+      <Box>
         {!!link && (
           <iframe
             title="Reader"
@@ -37,7 +37,7 @@ export default function Reader() {
             style={{ width: "100%", height: "65vh", border: "none" }}
           ></iframe>
         )}
-        <Typography variant="overline" component="div" p={2}>
+        <Typography variant="overline" component="div">
           <Typography fontWeight="bold">Viewing now:</Typography>
           {link ? link : "None"}
         </Typography>
@@ -47,7 +47,7 @@ export default function Reader() {
         onSubmit={handleLinkSubmit}
         display="flex"
         alignContent="center"
-        mt={2}
+        mt={1}
       >
         <TextField
           type="search"
