@@ -36,6 +36,7 @@ export default function Counter() {
       <Button onClick={decrement} variant="outlined" color="warning">
         Decrement
       </Button>
+      <Typography mt={2}>Setup counter:</Typography>
       <Box
         component="form"
         onSubmit={handleCountWithSetterSubmit}
@@ -52,7 +53,7 @@ export default function Counter() {
           autoComplete="off"
           required
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="outlined" color="info">
           Set
         </Button>
       </Box>

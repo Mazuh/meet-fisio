@@ -11,7 +11,7 @@ import Counter from "./Counter";
 import Reader from "./Reader";
 
 export default function App() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => setValue(newValue);
 

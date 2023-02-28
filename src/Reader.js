@@ -58,10 +58,10 @@ export default function Reader() {
           autoComplete="off"
           required
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="outlined" color="info">
           Set
         </Button>
-        <Button variant="outlined" onClick={clear}>
+        <Button variant="outlined" color="secondary" onClick={clear}>
           Clear
         </Button>
       </Box>

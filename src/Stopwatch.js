@@ -56,15 +56,15 @@ export default function Stopwatch() {
         </Typography>
       </Typography>
       {startedAt && !pausedAt ? (
-        <Button onClick={pause} variant="contained">
+        <Button onClick={pause} variant="outlined">
           Pause
         </Button>
       ) : (
-        <Button onClick={pausedAt ? unpause : start} variant="contained">
+        <Button onClick={pausedAt ? unpause : start} variant="outlined">
           Start
         </Button>
       )}{" "}
-      <Button onClick={clear} variant="outlined">
+      <Button onClick={clear} variant="outlined" color="secondary">
         Clear
       </Button>
     </Box>
