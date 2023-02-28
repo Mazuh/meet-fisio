@@ -39,7 +39,7 @@ export default function Reader() {
         )}
         <Typography variant="overline" component="div" p={2}>
           <Typography fontWeight="bold">Viewing now:</Typography>
-          {link ? link : <Typography fontStyle="italic">Empty.</Typography>}
+          {link ? link : "None"}
         </Typography>
       </Box>
       <Box
