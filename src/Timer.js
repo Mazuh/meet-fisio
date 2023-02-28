@@ -9,13 +9,21 @@ import Typography from "@mui/material/Typography";
 export default function Timer() {
   const [targetedAt, setTargetedAt] = useState(0);
 
-  const [visibleMinutes, setVisibleMinutes] = useState(DEFAULT_MINUTES);
+  const [pausedAt, setPausedAt] = useState(0);
+  const pause = () => {
+    setPausedAt(Date.now());
+  };
+  const unpause = () => {
+    setPausedAt(0);
+    setTargetedAt(Date.now() - pausedAt + targetedAt);
+  };
 
+  const [visibleMinutes, setVisibleMinutes] = useState(DEFAULT_MINUTES);
   const [visibleSeconds, setVisibleSeconds] = useState(DEFAULT_SECONDS);
 
   useEffect(() => {
     const worker = setInterval(() => {
-      if (!targetedAt) {
+      if (!targetedAt || pausedAt) {
         return;
       }
 
@@ -34,7 +42,7 @@ export default function Timer() {
       setVisibleSeconds(remainingSeconds);
     }, 200);
     return () => clearInterval(worker);
-  }, [targetedAt]);
+  }, [targetedAt, pausedAt]);
 
   const start = () => {
     setTargetedAt(
@@ -52,6 +60,8 @@ export default function Timer() {
 
     setVisibleMinutes(minutes);
     setVisibleSeconds(seconds);
+    setTargetedAt(0);
+    setPausedAt(0);
   };
 
   return (
@@ -66,9 +76,24 @@ export default function Timer() {
         </Typography>
         <Typography variant="overline">s</Typography>
       </Typography>
-      <Button onClick={start} variant="outlined">
-        Start
-      </Button>
+      {targetedAt && !pausedAt ? (
+        <Button
+          onClick={pause}
+          variant="outlined"
+          color="warning"
+          disabled={!visibleMinutes && !visibleSeconds}
+        >
+          Pause
+        </Button>
+      ) : (
+        <Button
+          onClick={pausedAt ? unpause : start}
+          variant="outlined"
+          disabled={!visibleMinutes && !visibleSeconds}
+        >
+          Start
+        </Button>
+      )}
       <Typography mt={2}>Setup timer:</Typography>
       <Box
         component="form"

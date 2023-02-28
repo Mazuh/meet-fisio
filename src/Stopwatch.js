@@ -56,7 +56,7 @@ export default function Stopwatch() {
         </Typography>
       </Typography>
       {startedAt && !pausedAt ? (
-        <Button onClick={pause} variant="outlined">
+        <Button onClick={pause} variant="outlined" color="warning">
           Pause
         </Button>
       ) : (
