@@ -9,7 +9,6 @@ import Tab from "@mui/material/Tab";
 import Timer from "./Timer";
 import Stopwatch from "./Stopwatch";
 import Counter from "./Counter";
-import Reader from "./Reader";
 
 export default function App() {
   const [value, setValue] = useState(0);
@@ -29,8 +28,7 @@ export default function App() {
             <Tab label="Timer ⏱️" {...a11yProps(0)} />
             <Tab label="Stopwatch ⌛" {...a11yProps(1)} />
             <Tab label="Counter ✋" {...a11yProps(2)} />
-            <Tab label="Reader 📚" {...a11yProps(4)} />
-            <Tab label="ℹ️" aria-label="About it" />
+            <Tab label="ℹ️" aria-label="About it" {...a11yProps(3)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -42,10 +40,7 @@ export default function App() {
         <TabPanel value={value} index={2}>
           <Counter />
         </TabPanel>
-        <TabPanel value={value} index={3}>
-          <Reader />
-        </TabPanel>
-        <TabPanel value={value} index={4} sx={{ maxWidth: "400px" }}>
+        <TabPanel value={value} index={3} sx={{ maxWidth: "400px" }}>
           Made by Mazuh under MIT License and available at GitHub{" "}
           <Link target="_blank" href="https://github.com/Mazuh/meet-fisio">
             Mazuh/meet-fisio
