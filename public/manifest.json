@@ -1,25 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "manifest_version": 3,
+  "name": "Meet Fisio",
+  "version": "1.0.0",
+  "description": "Browser extension for helping my physical therapist in our Meet sessions with counters and other helpers. Just a simple and straightforward tool.",
+  "author": "Marcell (Mazuh) Guilherme C. da Silva",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Meet Fisio"
+  },
+  "content_scripts": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "matches": ["https://meet.google.com/*"],
+      "css": ["static/css/TO_BE_REWRITTEN.css"],
+      "js": ["static/js/TO_BE_REWRITTEN.js"]
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

@@ -1,14 +1,27 @@
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+#root-app-meet-fisio input::-webkit-outer-spin-button,
+#root-app-meet-fisio input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-input[type="number"] {
+#root-app-meet-fisio input[type="number"] {
   -moz-appearance: textfield;
 }
 
-body {
-  max-width: 800px;
+#root-app-meet-fisio {
+  width: 450px;
+  max-height: 350px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  z-index: 1;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+}
+
+@media (max-width: 444px) {
+  #root-app-meet-fisio {
+    display: none;
+  }
 }
