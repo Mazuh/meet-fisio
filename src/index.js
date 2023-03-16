@@ -6,15 +6,24 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-function enableMeetFisioExtension() {
+function enableMeetFisioExtension(isLocalhost) {
   try {
-    const meetLinkRegex = /meet\.google\.com\/(?<room>(\w|\-)+).*$/;
-    const { room } = meetLinkRegex.exec(window.location.href)?.groups || {
-      room: "",
-    };
-    if (!room) {
+    const meetLinkRegex = /meet\.google\.com\/(?<room>(\w|\d|-)+).*$/;
+    const localLinkRegex = /room=(?<room>(\w|\d|-)+)/;
+    const { room } = (isLocalhost ? localLinkRegex : meetLinkRegex).exec(
+      window.location.href
+    )?.groups || { room: "" };
+
+    if (!room && !isLocalhost) {
       window.alert(
         "To enable Meet Fisio, you must be in a Google Meet room before."
+      );
+      return;
+    }
+
+    if (!room && isLocalhost) {
+      window.alert(
+        "To enable Meet Fisio in localhost, add a query params to the URL with an unique UUID-like value. For example:\nhttp://localhost:3000/?room=aaa-bbb-ccc"
       );
       return;
     }
@@ -36,7 +45,7 @@ function enableMeetFisioExtension() {
     );
     root.render(
       <React.StrictMode>
-        <App />
+        <App room={room} />
       </React.StrictMode>
     );
 
@@ -53,10 +62,11 @@ function enableMeetFisioExtension() {
   }
 }
 
-if (window.location.host === "localhost") {
-  enableMeetFisioExtension();
+if (window.location.hostname === "localhost") {
+  enableMeetFisioExtension(true);
 } else {
   window.chrome.runtime.onMessage.addListener(
-    (message) => message === "Meet-Fisio__start" && enableMeetFisioExtension()
+    (message) =>
+      message === "Meet-Fisio__start" && enableMeetFisioExtension(false)
   );
 }
