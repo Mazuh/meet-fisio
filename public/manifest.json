@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Meet Fisio",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Browser extension for helping my physical therapist in our Meet sessions with counters and other helpers. Just a simple and straightforward tool.",
   "author": "Marcell (Mazuh) Guilherme C. da Silva",
+  "permissions": ["tabs"],
   "action": {
     "default_popup": "ext_popup.html",
     "default_title": "Meet Fisio"

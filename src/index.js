@@ -16,7 +16,7 @@ function enableMeetFisioExtension(isLocalhost) {
 
     if (!room && !isLocalhost) {
       window.alert(
-        "To enable Meet Fisio, you must be in a Google Meet room before."
+        "To enable Meet Fisio, you must be in a Google Meet room first."
       );
       return;
     }
