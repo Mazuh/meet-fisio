@@ -5,7 +5,7 @@
   "description": "Browser extension for helping my physical therapist in our Meet sessions with counters and other helpers. Just a simple and straightforward tool.",
   "author": "Marcell (Mazuh) Guilherme C. da Silva",
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "ext_popup.html",
     "default_title": "Meet Fisio"
   },
   "content_scripts": [
